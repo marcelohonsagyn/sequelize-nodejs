@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    {{> header}}
+    <title>Sell your Stuff</title>
+  </head>
+  <body>
+    <h1>Product Detail</h1>
+    <div class="container">
+          {{> menu}}
+          <div class="list-group">
+                <ul>
+                    <br/>
+                        <div>
+                            <img src="/uploads/{{imageURL}}" alt="/uploads/{{imageURL}}" class="product-preview-image">
+                        </div>
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{title}}</h5>
+                        </div>
+                       <p class="mb-1">{{description}}</p>
+                       <small class="text-success"><b>${{price}}</b></small>
+
+
+                       <div class="add-comment">
+                            <b>Add Comment</b>
+                            <form action="/add-comment" method="POST">
+                                <input type="hidden" name="productId" value="{{id}}" />
+                                <div class="form-group">
+                                <label for="exampleInputEmail1">Title</label>
+                                <input type="text" class="form-control" name="title" aria-describedby="emailHelp" placeholder="Enter title">
+                                </div>
+                                <div class="form-group">
+                                <label for="exampleInputPassword1">Descrption</label>
+                                <textarea type="text" name="description" class="form-control" placeholder="Description"></textarea>
+                                </div>
+                                </br>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <ul>
+                        <h2>Comments</h2>
+                            {{#comments}}
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{title}}</h5>
+                                    </br>
+                                    <p class="mb-1">{{description}}</p>
+                                </div>
+                            {{/comments}}
+                        </ul>
+                </ul>
+          </div>
+    </div>
+    <div class="mb-3">
+
+        {{#message}}
+            <div class="alert alert-info" role="alert">
+                {{message}}
+            </div>
+        {{/message}}
+        {{#error}}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+        {{/error}}
+    </div>
+    {{> footer}}
+  </body>
+</html>

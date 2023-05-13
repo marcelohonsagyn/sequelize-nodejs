@@ -1,0 +1,8 @@
+{
+  "development": {
+    "username": "mznianfk",
+    "password": "9V2SKwrcCgRD69Eja97v8mPCMVL0UPZ9",
+    "database": "SellYourStuff",
+    "host": "drona.db.elephantsql.com",
+    "dialect": "postgres"
+  },

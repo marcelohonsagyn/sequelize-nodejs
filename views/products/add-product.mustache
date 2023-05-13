@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    {{> header}}
+    <title>Sell your Stuff</title>
+  </head>
+  <body>
+    <h1>Add Product</h1>
+    <div class="container">
+          {{> menu}}
+                     <div style="height: 10px;"></div>
+                     <form  action="/products/upload" method="POST" enctype="multipart/form-data">
+                      <label>Photo</label>
+                      <input type="file" name="myFiles" />
+                      <button type="submit">Upload</button>
+                    </form>
+
+                    <img src="{{imageURL}}" class="{{className}}"/>
+
+                    <form action="/products/add-product" method="POST">
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="Enter title">
+                      </div>
+                        <div class="form-group">
+                        <div style="height: 10px;"></div>
+                        <label>Description</label>
+                        <textarea class="form-control" name="description"></textarea>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" name="price" />
+                      </div>
+                      <br/>
+                        <button type="Save" class="btn btn-primary">Save</button>
+                       
+                    </form>
+
+              <div class="mb-3">
+            
+                  {{#message}}
+                      <div class="alert alert-info" role="alert">
+                          {{message}}
+                      </div>
+                  {{/message}}
+                  {{#error}}
+                      <div class="alert alert-danger" role="alert">
+                          {{error}}
+                      </div>
+                  {{/error}}
+              </div>
+    {{> footer}}
+  </body>
+</html>
